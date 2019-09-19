@@ -48,6 +48,18 @@ extension GroupedSection: CustomStringConvertible {
 
 }
 
+extension GroupedSection: Comparable, Equatable where SectionItem: Comparable & Equatable {
+
+    public static func < (lhs: GroupedSection<SectionItem, RowItem>, rhs: GroupedSection<SectionItem, RowItem>) -> Bool {
+        return lhs.sectionItem < rhs.sectionItem
+    }
+
+    public static func == (lhs: GroupedSection<SectionItem, RowItem>, rhs: GroupedSection<SectionItem, RowItem>) -> Bool {
+        return lhs.sectionItem == rhs.sectionItem
+    }
+
+}
+
 // see: https://forums.swift.org/t/extension-on-array-where-element-is-generic-type/10225
 public extension Array where Element: HasRows {
 

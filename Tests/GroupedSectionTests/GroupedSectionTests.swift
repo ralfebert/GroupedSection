@@ -73,7 +73,11 @@ final class GroupedSectionTests: XCTestCase {
     }
 
     var exampleSections: [GroupedSection<String, String>] {
-        return [GroupedSection(sectionItem: "A", rows: ["Alice", "Amy"]), GroupedSection(sectionItem: "B", rows: ["Bob", "Bert"])]
+        let names = ["Alice", "Amy", "Bob", "Bert"]
+        var sections: [GroupedSection<String, String>]
+        sections = GroupedSection.group(rows: names) { String($0.prefix(1)) }
+        sections.sort()
+        return sections
     }
 
     func testIndexPathSubscript() {
