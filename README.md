@@ -12,7 +12,7 @@ Grouping a list of names by first letter:
 
 ```swift
 let names = ["Alice", "Amy", "Bob", "Bert"]
-var sections : [GroupedSection<String, String>]
+var sections : [GroupedSection<String, String>] // GroupedSection<SectionItem, RowItem>
 sections = GroupedSection.group(rows: names) { String($0.prefix(1)) }
 sections.sort()
 return sections
@@ -22,7 +22,7 @@ See [NewspaperExample / Branch grouped_sections_spm ](https://github.com/ralfebe
 
 ## Details
 
-* `GroupedSection#description` returns a nice formatted representation for debug output and test assertions.
+* `description` returns a formatted representation for debug output and test assertions.
 
   ```
   A
